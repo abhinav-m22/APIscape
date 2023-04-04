@@ -3,7 +3,6 @@ import Para from './components/ui/Para'
 import type { Metadata } from 'next'
 import Heading from './components/ui/Heading'
 import Link from 'next/link'
-import Image from 'next/image'
 
 export const metadata: Metadata = {
   title: 'APIscape | Home',
