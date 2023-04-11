@@ -49,7 +49,7 @@ const RequestApiKey = () => {
         <div className='container md:max-w-2xl'>
             <div className='flex flex-col gap-6 items-center'>
                 <Key className='mx-auto h-12 w-12 text-gray-400' />
-                <Heading>Request your API Key</Heading>
+                <Heading className='text-center'>Request your API Key</Heading>
                 <Para>You haven't requested an API Key yet</Para>
             </div>
             <form
@@ -57,13 +57,13 @@ const RequestApiKey = () => {
                 className='mt-6 sm:flex sm:items-center'
                 action='#'
             >
-                <div className='relative rounded-md shadow-dm sm:min-w-0 sm:flex'>
+                <div className='relative rounded-md shadow-sm sm:min-w-0 sm:flex-1'>
                     {apiKey ? (
                         <CopyButton valueToCopy={apiKey} type='button' className='absolute inset-y-0 right-0 animate-in fade-in duration-300' />
                     ) : null}
                     <Input readOnly value={apiKey ?? ''} placeholder='Request an API key' />
                 </div>
-                <div className='mt-3 sm:mt-0 sm:ml-4 sm:flex-shrink-0'>
+                <div className='mt-3 flex justify-center sm:mt-0 sm:ml-4 sm:flex-shrink-0'>
                     <Button disabled={!!apiKey} isLoading={isCreating}>Request Key</Button>
                 </div>
             </form>
