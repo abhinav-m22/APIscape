@@ -8,6 +8,7 @@ import Heading from './ui/Heading'
 import Para from './ui/Para'
 import { Input } from './ui/Input'
 import Table from './Table'
+import ApiKeyOptions from './ApiKeyOptions'
 
 const ApiDashboard = async() => {
 
@@ -43,10 +44,11 @@ const ApiDashboard = async() => {
         <Para>Your API Key: </Para>
         <Input className='w-fit truncate' readOnly value={activeApiKey.key} />
 
+        <ApiKeyOptions apiKeyId={activeApiKey.id} key={activeApiKey.key} />
+        </div>
         <Para className='text-center md:text-left mt-4 -mb-4'>Your API History: </Para>
 
         <Table userRequests={serializableRequests} />
-      </div>
     </div>
   )
 }
