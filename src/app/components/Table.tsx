@@ -48,7 +48,7 @@ const colums = columnsDraft.map((col) => {
         ...col,
         renderHeader(params: GridColumnHeaderParams<any, any, any>) {
             return(
-                <strong className="font-semibold">{params.colDef.headerName} 🗝️</strong>
+                <strong className="font-semibold">{params.colDef.headerName} </strong>
             )
         },
     }
