@@ -4,13 +4,15 @@ import { Redis } from '@upstash/redis'
 import { NextResponse } from 'next/server'
 import { getToken } from 'next-auth/jwt'
 
-const redis = new Redis({
-    url: process.env.REDIS_URL,
-    token: process.env.REDIS_SECRET
-})
+// const redis = new Redis({
+//   url: process.env.REDIS_URL,
+//   token: process.env.REDIS_SECRET,
+// })
 
-const rateLimit = new Ratelimit({
-    redis, 
+const redis = Redis.fromEnv()
+
+const ratelimit = new Ratelimit({
+    redis: redis, 
     limiter: Ratelimit.slidingWindow(5, '1 h')
 })
 
@@ -22,7 +24,7 @@ export default withAuth(
             const ip = req.ip ?? '127.0.0.1'
 
             try {
-                const { success } = await rateLimit.limit(ip)
+                const { success } = await ratelimit.limit(ip)
 
                 if(!success){
                     return NextResponse.json({error: 'Too many requests'})

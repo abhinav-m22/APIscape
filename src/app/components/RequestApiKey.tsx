@@ -50,7 +50,7 @@ const RequestApiKey = () => {
             <div className='flex flex-col gap-6 items-center'>
                 <Key className='mx-auto h-12 w-12 text-gray-400' />
                 <Heading className='text-center'>Request your API Key</Heading>
-                <Para>You haven't requested an API Key yet</Para>
+                <Para>You haven&apos;t requested an API Key yet</Para>
             </div>
             <form
                 onSubmit={createNewApiKey}
